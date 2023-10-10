@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EtudiantController">
+   <children>
+      <Text layoutX="207.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sandwhich Creator" wrappingWidth="121.52880859375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <GridPane layoutX="98.0" layoutY="121.0" prefHeight="213.0" prefWidth="379.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="116.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="263.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Name Your Sandwhich" GridPane.rowIndex="2" />
+            <Label text="Type of Protein" GridPane.rowIndex="3" />
+            <Label text="Type Of Bread" GridPane.rowIndex="4" />
+            <Label text="Type of Toppings" GridPane.rowIndex="5" />
+            <TextField fx:id="txtFirstName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtAge" prefHeight="27.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cboBread" prefHeight="27.0" prefWidth="171.0" promptText="Choice of Bread" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label prefHeight="17.0" prefWidth="77.0" text="Recherche" />
+            <Label text="Numéro" GridPane.rowIndex="1" />
+            <Label fx:id="LabelID" prefHeight="17.0" prefWidth="38.0" text="ID" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cboID" prefHeight="27.0" prefWidth="173.0" promptText="Choose Sandwhich" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <HBox layoutX="193.0" layoutY="363.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnAjouter" layoutX="204.0" layoutY="420.0" mnemonicParsing="false" onAction="#ajouter" text="Add" />
+            <Button fx:id="btnModifier" layoutX="291.0" layoutY="420.0" mnemonicParsing="false" onAction="#updateEtudiant" text="Edit" />
+            <Button fx:id="btnEffacer" layoutX="366.0" layoutY="420.0" mnemonicParsing="false" onAction="#deleteEtudiant" text="Delete" />
+            <Button fx:id="btnClear" layoutX="435.0" layoutY="420.0" mnemonicParsing="false" onAction="#reinitialiser" text="Restart" />
+         </children>
+      </HBox>
+      <Label fx:id="lblResults" layoutX="172.0" layoutY="414.0" prefHeight="28.0" prefWidth="348.0" textFill="#eb0c0c" />
+   </children>
+</AnchorPane>
