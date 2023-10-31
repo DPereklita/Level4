@@ -15,20 +15,16 @@ public class Etudiant
 {
     private IntegerProperty idProperty;
     private StringProperty SandwhichNameProperty;
-    private StringProperty lastNameProperty;
-    private StringProperty departmentProperty;
+    private StringProperty breadProperty;
     private StringProperty proteinProperty;
     private StringProperty toppingsProperty;
-    private StringProperty ageProperty;
   
     
     public Etudiant()
     {
     	this.idProperty = new SimpleIntegerProperty();
         this.SandwhichNameProperty = new SimpleStringProperty();
-        this.lastNameProperty = new SimpleStringProperty();
-        this.departmentProperty = new SimpleStringProperty();
-        this.ageProperty= new SimpleStringProperty();	
+        this.breadProperty = new SimpleStringProperty();
     }
     
    public int getId()
@@ -60,56 +56,23 @@ public class Etudiant
 		this.SandwhichNameProperty = SandwhichNameProperty;
 	}
 
-	public StringProperty getLastNameProperty() {
-		return lastNameProperty;
+	
+	public StringProperty getbreadProperty() {
+		return breadProperty;
 	}
-
-	public void setLastNameProperty(StringProperty lastNameProperty) {
-		this.lastNameProperty = lastNameProperty;
+	public void setBreadProperty(StringProperty breadProperty) {
+		this.breadProperty = breadProperty;
 	}
-
-	public String getLastName()
+	public String getBread()
 	{
-		return lastNameProperty.get();
+		return breadProperty.get();
 	}
-	public void setLastName(String lastName)
+	public void setBread(String address)
 	{
-		this.lastNameProperty.set(lastName);
+		this.breadProperty.set(address);
 	}
 	
-	public StringProperty getDepartmentProperty() {
-		return departmentProperty;
-	}
 
-	public void setDepartmentProperty(StringProperty departmentProperty) {
-		this.departmentProperty = departmentProperty;
-	}
-	public String getDepartment()
-	{
-		return departmentProperty.get();
-	}
-	public void setDepartment(String address)
-	{
-		this.departmentProperty.set(address);
-	}
-	
-	//JAIFIAFNMAFNAFKNAFFNF
-	public StringProperty getProteinProperty() {
-		return proteinProperty;
-	}
-
-	public void setProteinProperty(StringProperty proteinProperty) {
-		this.proteinProperty = proteinProperty;
-	}
-	public String getProtein()
-	{
-		return proteinProperty.get();
-	}
-	public void setProtein(String address)
-	{
-		this.proteinProperty.set(address);
-	}
-	
 	public StringProperty getToppingsProperty() {
 		return toppingsProperty;
 	}
@@ -126,22 +89,23 @@ public class Etudiant
 		this.toppingsProperty.set(address);
 	}
 	
-	public StringProperty getAgeProperty() {
-		return ageProperty;
-		
+	public StringProperty getProteinProperty() {
+		return proteinProperty;
 	}
-	public void setAgeProperty(StringProperty ageProperty) {
-		this.ageProperty = ageProperty;
+
+	public void setProteinProperty(StringProperty proteinProperty) {
+		this.proteinProperty = proteinProperty;
 	}
-	public String getAge()
+	public String getProtein()
 	{
-		return ageProperty.get();
+		return proteinProperty.get();
 	}
-	public void setAge(String age)
+	public void setProtein(String address)
 	{
-		this.ageProperty.set(age);
+		this.proteinProperty.set(address);
 	}
-	  @Override public String toString() { String nom=this.getSandwhichName() + " "
-	  +this.getLastName(); return nom; }	
+	
+	
+	  @Override public String toString() { String nom=this.getSandwhichName(); return nom; }	
 
 }

@@ -25,8 +25,6 @@ public class EtudiantController implements Initializable{
 	@FXML
 	private Button btnClear;
 	@FXML
-	private TextField txtAge;
-	@FXML
 	private Button btnEffacer;
 	@FXML
 	private ComboBox<String> cboBread;
@@ -34,8 +32,6 @@ public class EtudiantController implements Initializable{
 	private Button btnModifier;
 	@FXML
 	private Button btnAjouter;
-	@FXML
-	private TextField txtLastName;
 	@FXML
 	private ComboBox<String> cboProtein;
 	@FXML
@@ -49,11 +45,11 @@ public class EtudiantController implements Initializable{
 	private	ObservableList<Etudiant> EtudiantList;
 	
 	private ObservableList<String> list2=(ObservableList<String>) FXCollections.observableArrayList
-			("White Bread","Whole Wheat","Multi Grain", "Gluten Free"); 
+			("Ham","Turkey","Chicken", "Beef"); 
 	private	ObservableList<Etudiant> EtudiantList2;
 	
 	private ObservableList<String> list3=(ObservableList<String>) FXCollections.observableArrayList
-			("White Bread","Whole Wheat","Multi Grain", "Gluten Free"); 
+			("Lettuce","Tomato","Cheese", "Olives"); 
 	private	ObservableList<Etudiant> EtudiantList3;
 	
 	@Override
@@ -89,8 +85,8 @@ public class EtudiantController implements Initializable{
 		cboToppings.setItems(list3);
 	try {
 		EtudiantList=EtudiantDAO.getAllRecords();
-		cboToppings.setItems(EtudiantList3);
-		cboToppings.valueProperty().addListener((obs, oldVal, newVal) ->
+		cboID.setItems(EtudiantList3);
+		cboID.valueProperty().addListener((obs, oldVal, newVal) ->
         showEtudiant(newVal));
 		
 	} catch (ClassNotFoundException e) {
@@ -112,9 +108,9 @@ public class EtudiantController implements Initializable{
 	@FXML
 	void ajouter()throws ClassNotFoundException, SQLException
 	{
-		EtudiantDAO.insertEtudiant(txtLastName.getText(), txtSandwhichName.getText(),
-				cboBread.getValue(), txtAge.getText());
-		lblResults.setText("Les données de " + txtLastName.getText() + " ont été ajoutées");
+		EtudiantDAO.insertEtudiant(txtSandwhichName.getText(),
+				cboBread.getValue(), cboProtein.getValue(), cboToppings.getValue());
+		lblResults.setText("Les données de " + txtSandwhichName.getText() + " ont été ajoutées");
 		reinitialiser();
 
 	}
@@ -127,11 +123,9 @@ public class EtudiantController implements Initializable{
 			btnAjouter.setDisable(true);
 			LabelID.setText(String.valueOf(etudiant.getId()));
 			txtSandwhichName.setText(etudiant.getSandwhichName());
-			txtLastName.setText(etudiant.getLastName());
-			cboBread.setValue(etudiant.getDepartment());
+			cboBread.setValue(etudiant.getBread());
 			cboProtein.setValue(etudiant.getProtein());
 			cboToppings.setValue(etudiant.getToppings());
-			txtAge.setText(etudiant.getAge());
 			lblResults.setText("");
 		}
 		else
@@ -139,9 +133,9 @@ public class EtudiantController implements Initializable{
 			btnAjouter.setDisable(false);
 			LabelID.setText("");
 			txtSandwhichName.setText("");
-			txtLastName.setText("");
 			cboBread.setValue("");
-			txtAge.setText("");
+			cboToppings.setValue("");
+			cboProtein.setValue("");
 		}
 	}
 
@@ -149,8 +143,8 @@ public class EtudiantController implements Initializable{
 		public void updateEtudiant() throws ClassNotFoundException, SQLException
 		{
 			EtudiantDAO.updateEtudiant(Integer.parseInt(LabelID.getText()), 
-					txtLastName.getText(), txtSandwhichName.getText(), cboBread.getValue(), txtAge.getText());
-			lblResults.setText("Les données de " + txtLastName.getText() + " ont été mises à jour");
+					txtSandwhichName.getText(), cboBread.getValue(), cboProtein.getValue(), cboToppings.getValue());
+			lblResults.setText("Les données de " + txtSandwhichName.getText() + " ont été mises à jour");
 			reinitialiser();
 		
 		}  

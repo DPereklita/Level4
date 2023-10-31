@@ -6,9 +6,9 @@ import javafx.collections.ObservableList;
 
 public class EtudiantDAO {
 	
-	public static void insertEtudiant(String LastName, String SandwhichName, String Department, String Age) throws ClassNotFoundException, SQLException
+	public static void insertEtudiant(String SandwhichName, String Bread, String Protein, String Toppings) throws ClassNotFoundException, SQLException
 	{
-		String sql="insert into etudiant(LastName,SandwhichName,Department, Age) values('"+LastName+"','"+SandwhichName+"','"+Department+"','"+Age+"')";
+		String sql="insert into etudiant(SandwhichName,Bread) values('"+SandwhichName+"','"+Bread+"','"+Protein+"','"+Toppings+"')";
 		try
 		{ 
 			DBUtilitaires.dbExecuteQuery(sql);
@@ -20,9 +20,9 @@ public class EtudiantDAO {
 			throw e;
 		}
 	}
-	public static void updateEtudiant(int ID, String LastName, String SandwhichName, String Department, String Age) throws ClassNotFoundException, SQLException
+	public static void updateEtudiant(int ID, String SandwhichName, String Bread, String Protein, String Toppings) throws ClassNotFoundException, SQLException
 	{
-		String sql="update etudiant set LastName='"+LastName+"', SandwhichName='"+SandwhichName+"', Department='"+Department+"', Age='"+Age+"' where ID= "+ ID;
+		String sql="update etudiant set SandwhichName='"+SandwhichName+"', Bread='"+Bread+", Protein='"+Protein+", Toppings='"+Toppings+" where ID= "+ ID;
 		
 		try
 		{
@@ -80,9 +80,9 @@ public class EtudiantDAO {
 				Etudiant etudiant=new Etudiant();
 				etudiant.setId(rsSet.getInt("ID"));
 				etudiant.setSandwhichName(rsSet.getString("SandwhichName"));
-				etudiant.setLastName(rsSet.getString("LastName"));
-				etudiant.setDepartment(rsSet.getString("Department"));
-				etudiant.setAge(rsSet.getString("Age"));
+				etudiant.setBread(rsSet.getString("Bread"));
+				etudiant.setProtein(rsSet.getString("Protein"));
+				etudiant.setToppings(rsSet.getString("Toppings"));
 				EtudiantList.add(etudiant);
 			}
 			return EtudiantList;
