@@ -25,6 +25,8 @@ public class Etudiant
     	this.idProperty = new SimpleIntegerProperty();
         this.SandwhichNameProperty = new SimpleStringProperty();
         this.breadProperty = new SimpleStringProperty();
+        this.proteinProperty = new SimpleStringProperty();
+        this.toppingsProperty = new SimpleStringProperty();
     }
     
    public int getId()

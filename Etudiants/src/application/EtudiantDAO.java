@@ -8,7 +8,7 @@ public class EtudiantDAO {
 	
 	public static void insertEtudiant(String SandwhichName, String Bread, String Protein, String Toppings) throws ClassNotFoundException, SQLException
 	{
-		String sql="insert into etudiant(SandwhichName,Bread) values('"+SandwhichName+"','"+Bread+"','"+Protein+"','"+Toppings+"')";
+		String sql="insert into etudiant(SandwhichName,Bread,Protein,Toppings) values('"+SandwhichName+"','"+Bread+"','"+Protein+"','"+Toppings+"')";
 		try
 		{ 
 			DBUtilitaires.dbExecuteQuery(sql);
@@ -22,7 +22,7 @@ public class EtudiantDAO {
 	}
 	public static void updateEtudiant(int ID, String SandwhichName, String Bread, String Protein, String Toppings) throws ClassNotFoundException, SQLException
 	{
-		String sql="update etudiant set SandwhichName='"+SandwhichName+"', Bread='"+Bread+", Protein='"+Protein+", Toppings='"+Toppings+" where ID= "+ ID;
+		String sql="update etudiant set SandwhichName='"+SandwhichName+"', Bread='"+Bread+"', Protein='"+Protein+"', Toppings='"+Toppings+"', where ID= "+ ID;
 		
 		try
 		{

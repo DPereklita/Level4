@@ -55,6 +55,15 @@ public class EtudiantController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) 
 	{
+		public void updateEtudiant() throws ClassNotFoundException, SQLException
+		{
+			EtudiantDAO.updateEtudiant(Integer.parseInt(LabelID.getText()), 
+					txtSandwhichName.getText(), cboBread.getValue(), cboProtein.getValue(), cboToppings.getValue());
+			lblResults.setText("Les données de " + txtSandwhichName.getText() + " ont été mises à jour");
+			reinitialiser();
+		}
+		
+		
 		cboBread.setItems(list);
 	try {
 		EtudiantList=EtudiantDAO.getAllRecords();

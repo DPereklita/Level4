@@ -16,9 +16,9 @@
 
 <AnchorPane prefHeight="427.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EtudiantController">
    <children>
-      <ImageView fitHeight="560.0" fitWidth="569.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="433.0" fitWidth="569.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/1661978388080%20(1).jpeg" />
+            <Image url="@image/1661978388080%20(1).jpeg" />
          </image>
       </ImageView>
       <Text layoutX="207.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sandwhich Creator" wrappingWidth="121.52880859375">
