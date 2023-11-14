@@ -51,18 +51,51 @@ public class EtudiantController implements Initializable{
 	private ObservableList<String> list3=(ObservableList<String>) FXCollections.observableArrayList
 			("Lettuce","Tomato","Cheese", "Olives"); 
 	private	ObservableList<Etudiant> EtudiantList3;
+	@FXML
+	public void reinitialiser()throws ClassNotFoundException, SQLException
+	{
+		EtudiantList=EtudiantDAO.getAllRecords();
+		cboID.setItems(EtudiantList);
+		
+	}
+	@FXML
+	void ajouter()throws ClassNotFoundException, SQLException
+	{
+		EtudiantDAO.insertEtudiant(txtSandwhichName.getText(),
+				cboBread.getValue(), cboProtein.getValue(), cboToppings.getValue());
+		lblResults.setText("Les données de " + txtSandwhichName.getText() + " ont été ajoutées");
+		reinitialiser();
+
+	}
+	
+	public void showEtudiant(Etudiant etudiant)
+	{
+		if(etudiant!=null)
+		{
+			btnAjouter.setDisable(true);
+			LabelID.setText(String.valueOf(etudiant.getId()));
+			txtSandwhichName.setText(etudiant.getSandwhichName());
+			cboBread.setValue(etudiant.getBread());
+			cboProtein.setValue(etudiant.getProtein());
+			cboToppings.setValue(etudiant.getToppings());
+			lblResults.setText("");
+		}
+		else
+		{
+			btnAjouter.setDisable(false);
+			LabelID.setText("");
+			txtSandwhichName.setText("");
+			cboBread.setValue("");
+			cboToppings.setValue("");
+			cboProtein.setValue("");
+		}
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) 
-	{
-		public void updateEtudiant() throws ClassNotFoundException, SQLException
-		{
-			EtudiantDAO.updateEtudiant(Integer.parseInt(LabelID.getText()), 
-					txtSandwhichName.getText(), cboBread.getValue(), cboProtein.getValue(), cboToppings.getValue());
-			lblResults.setText("Les données de " + txtSandwhichName.getText() + " ont été mises à jour");
-			reinitialiser();
-		}
-		
+	
+	{		
+		cboID.setItems(EtudiantList);
 		
 		cboBread.setItems(list);
 	try {
@@ -103,50 +136,21 @@ public class EtudiantController implements Initializable{
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}}
+	try {
+		reinitialiser();
+	} catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	}
 	// Réinitialiser les champs
-	@FXML
-	public void reinitialiser()throws ClassNotFoundException, SQLException
-	{
-		EtudiantList=EtudiantDAO.getAllRecords();
-		cboID.setItems(EtudiantList);
-		
-	}
+
 	
 	// Ajouter un étudiant 
-	@FXML
-	void ajouter()throws ClassNotFoundException, SQLException
-	{
-		EtudiantDAO.insertEtudiant(txtSandwhichName.getText(),
-				cboBread.getValue(), cboProtein.getValue(), cboToppings.getValue());
-		lblResults.setText("Les données de " + txtSandwhichName.getText() + " ont été ajoutées");
-		reinitialiser();
 
-	}
 	// Afficher les détails
 	
-	public void showEtudiant(Etudiant etudiant)
-	{
-		if(etudiant!=null)
-		{
-			btnAjouter.setDisable(true);
-			LabelID.setText(String.valueOf(etudiant.getId()));
-			txtSandwhichName.setText(etudiant.getSandwhichName());
-			cboBread.setValue(etudiant.getBread());
-			cboProtein.setValue(etudiant.getProtein());
-			cboToppings.setValue(etudiant.getToppings());
-			lblResults.setText("");
-		}
-		else
-		{
-			btnAjouter.setDisable(false);
-			LabelID.setText("");
-			txtSandwhichName.setText("");
-			cboBread.setValue("");
-			cboToppings.setValue("");
-			cboProtein.setValue("");
-		}
-	}
+
 
 	// Mise à jour 
 		public void updateEtudiant() throws ClassNotFoundException, SQLException

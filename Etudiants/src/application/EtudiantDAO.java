@@ -20,22 +20,18 @@ public class EtudiantDAO {
 			throw e;
 		}
 	}
-	public static void updateEtudiant(int ID, String SandwhichName, String Bread, String Protein, String Toppings) throws ClassNotFoundException, SQLException
-	{
-		String sql="update etudiant set SandwhichName='"+SandwhichName+"', Bread='"+Bread+"', Protein='"+Protein+"', Toppings='"+Toppings+"', where ID= "+ ID;
-		
-		try
-		{
-			DBUtilitaires.dbExecuteQuery(sql);
-		}
-		catch(SQLException e)
-		{
-			System.out.println("Erreur lors de la mise à jour");
-			e.printStackTrace();
-			throw e;
-		}
-		
+	public static void updateEtudiant(int ID, String SandwhichName, String Bread, String Protein, String Toppings) throws ClassNotFoundException, SQLException {
+	    String sql = "update etudiant set SandwhichName='" + SandwhichName + "', Bread='" + Bread + "', Protein='" + Protein + "', Toppings='" + Toppings + "' where ID= " + ID;
+
+	    try {
+	        DBUtilitaires.dbExecuteQuery(sql);
+	    } catch (SQLException e) {
+	        System.out.println("Erreur lors de la mise à jour");
+	        e.printStackTrace();
+	        throw e;
+	    }
 	}
+
 	public static void deleteEtudiantById(int id) throws ClassNotFoundException, SQLException
 	{
 		String sql="delete from etudiant where ID= "+ id;
